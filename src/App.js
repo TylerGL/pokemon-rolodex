@@ -27,21 +27,9 @@ class App extends Component {
     super();
     this.state = {
       pokemon: [],
+      searchField: "",
     };
   }
-
-  //  componentDidMount(){
-  //   fetch('https://pokeapi.co/api/v2/pokemon/?limit=151')
-  //   .then(response => response.json())
-  //   .then((pokemon) =>
-  //   this.setState(
-  //     () => {
-  //       return {pokemon: pokemon};
-  //     },
-  //     () => {
-  //       console.log(this.state);
-  //     }
-  //   ))}
 
   componentDidMount() {
     fetch("https://pokeapi.co/api/v2/pokemon/?limit=151")
@@ -61,6 +49,10 @@ class App extends Component {
   }
 
   render() {
+    const filteredPokemon = this.state.pokemon.filter((pokemon) => {
+      return pokemon.name.toLocaleLowerCase().includes(this.state.searchField);
+    });
+
     return (
       <div className="App">
         <input
@@ -69,17 +61,13 @@ class App extends Component {
           placeholder="Search Pokemon"
           onChange={(event) => {
             console.log(event.target.value);
-            const searchString = event.target.value.toLocaleLowerCase();
-            const filteredPokemon = this.state.pokemon.filter((pokemon) => {
-              return pokemon.name.toLocaleLowerCase().includes(searchString);
-            });
-
+            const searchField = event.target.value.toLocaleLowerCase();
             this.setState(() => {
-              return {pokemon:filteredPokemon};
-            })
+              return { searchField };
+            });
           }}
         />
-        {this.state.pokemon.map((pokemon) => {
+        {filteredPokemon.map((pokemon) => {
           return (
             <div key={pokemon.id}>
               <h1>Name: {capFirstChar(pokemon.name)}</h1>
