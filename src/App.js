@@ -48,9 +48,19 @@ class App extends Component {
       );
   }
 
+onSearchChange = (event) => {
+  const searchField = event.target.value.toLocaleLowerCase();
+  this.setState(() => {
+    return { searchField };
+  });
+}
+
+
   render() {
-    const filteredPokemon = this.state.pokemon.filter((pokemon) => {
-      return pokemon.name.toLocaleLowerCase().includes(this.state.searchField);
+    const {pokemon, searchField, } = this.state;
+    const {onSearchChange } = this;
+    const filteredPokemon = pokemon.filter((pokemon) => {
+      return pokemon.name.toLocaleLowerCase().includes(searchField);
     });
 
     return (
@@ -59,13 +69,7 @@ class App extends Component {
           className="search-box"
           type="search"
           placeholder="Search Pokemon"
-          onChange={(event) => {
-            console.log(event.target.value);
-            const searchField = event.target.value.toLocaleLowerCase();
-            this.setState(() => {
-              return { searchField };
-            });
-          }}
+          onChange={onSearchChange}
         />
         {filteredPokemon.map((pokemon) => {
           return (
