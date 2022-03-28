@@ -1,6 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { Component } from "react";
+import CardList from './components/card-list/card-list.component.jsx'
 
 function capFirstChar(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -43,7 +44,7 @@ class App extends Component {
       })
       .then((data) =>
         this.setState({ pokemon: data }, () =>
-          console.log("Main Pokemon State: ", this.state.pokemon)
+          // console.log("Main Pokemon State: ", this.state.pokemon)
         )
       );
   }
@@ -84,6 +85,7 @@ onSearchChange = (event) => {
             </div>
           );
         })}
+        <CardList pokemon={filteredPokemon} />
       </div>
     );
   }
