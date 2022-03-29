@@ -20,6 +20,7 @@ function getTypes(pokemon) {
   }
 }
 
+
 class CardList extends Component {
   render() {
     const { pokemon } = this.props;
@@ -28,13 +29,13 @@ class CardList extends Component {
     return (
       <div className="card-list">
         {pokemon.map((pokemon) => {
-          const { id, name, height, weight } = pokemon;
+          const { id, name, sprites, height, weight } = pokemon;
           return (
             <div className="card-container" key={id}>
               <h1 className="pokemon-name">{capFirstChar(name)}</h1>
               <img
                 className="pokemon-img"
-                src={pokemon.sprites.front_default}
+                src={sprites.front_default}
                 alt="regular-front"
               ></img>
               <div className="pokemon-type">{getTypes(pokemon)}</div>
