@@ -1,8 +1,7 @@
-import logo from "./logo.svg";
-import "./App.css";
 import { Component } from "react";
 import CardList from "./components/card-list/card-list.component.jsx";
 import SearchBox from "./components/search-box/search-box.component.jsx";
+import "./App.css";
 
 class App extends Component {
   constructor() {
@@ -49,7 +48,7 @@ class App extends Component {
         <SearchBox
           onChangeHandler={onSearchChange}
           placeholder="Search Pokémon"
-          className={'search-box'}
+          className={"search-box"}
         />
         <CardList pokemon={filteredPokemon} />
       </div>

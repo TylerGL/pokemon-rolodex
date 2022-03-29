@@ -1,4 +1,5 @@
 import { Component } from "react";
+import "./card-list.styles.css";
 
 function capFirstChar(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -6,35 +7,48 @@ function capFirstChar(string) {
 
 function getTypes(pokemon) {
   const typelength = pokemon.types.length;
+  const typeZero = pokemon.types[0].type.name;
   if (typelength === 2) {
-    // console.log(pokemon.types[0].type.name)
-    // console.log(pokemon.types[1].type.name)
+    const typeOne = pokemon.types[1].type.name;
     return (
       <p>
-        Types: {capFirstChar(pokemon.types[0].type.name)},{" "}
-        {capFirstChar(pokemon.types[1].type.name)}
+        {capFirstChar(typeZero)}, {capFirstChar(typeOne)}
       </p>
     );
   } else if (typelength === 1) {
-    return <p>Type: {capFirstChar(pokemon.types[0].type.name)}</p>;
+    return <p>{capFirstChar(typeZero)}</p>;
   }
 }
 
 class CardList extends Component {
   render() {
     const { pokemon } = this.props;
-    console.log(this.props);
-    console.log('render');
-    return pokemon.map((pokemon) => 
-      <div key={pokemon.id}>
-        <h1>Name: {capFirstChar(pokemon.name)}</h1>
-        <p>ID: {pokemon.id}</p>
-        <p>Weight: {Math.round(pokemon.weight * 0.1 * 100) / 100}kg</p>
-        <p>Height: {Math.round(pokemon.height * 0.1 * 100) / 100}m</p>
-        <div>{getTypes(pokemon)}</div>
-        <img src={pokemon.sprites.front_default} alt="regular"></img>
-        <img src={pokemon.sprites.front_shiny} alt="shiny"></img>
-      </div>);
+    // console.log(this.props);
+    // console.log("render");
+    return (
+      <div className="card-list">
+        {pokemon.map((pokemon) => {
+          const { id, name, height, weight } = pokemon;
+          return (
+            <div className="card-container" key={id}>
+              <h1 className="pokemon-name">{capFirstChar(name)}</h1>
+              <img
+                className="pokemon-img"
+                src={pokemon.sprites.front_default}
+                alt="regular-front"
+              ></img>
+              <div className="pokemon-type">{getTypes(pokemon)}</div>
+              <p className="pokemon-height">
+                Height: {Math.round(height * 0.1 * 100) / 100}m
+              </p>
+              <p className="pokemon-weight">
+                Weight: {Math.round(weight * 0.1 * 100) / 100}kg
+              </p>
+            </div>
+          );
+        })}
+      </div>
+    );
   }
 }
 
