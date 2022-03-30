@@ -20,6 +20,17 @@ function getTypes(pokemon) {
   }
 }
 
+function convertUnits (pokemon, measure){
+  var convWeight = Math.round(pokemon.weight * 0.1 * 100) / 100;
+  var convHeight = Math.round(pokemon.height * 0.1 * 100) / 100;
+  if (measure === pokemon.height){
+    // console.log('height working');
+    return convHeight;
+  } else if (measure === pokemon.weight){
+    // console.log('weight working');
+    return convWeight;
+  }
+}
 
 class CardList extends Component {
   render() {
@@ -40,10 +51,10 @@ class CardList extends Component {
               ></img>
               <div className="pokemon-type">{getTypes(pokemon)}</div>
               <p className="pokemon-height">
-                Height: {Math.round(height * 0.1 * 100) / 100}m
+                Height: {convertUnits(pokemon, height)}m
               </p>
               <p className="pokemon-weight">
-                Weight: {Math.round(weight * 0.1 * 100) / 100}kg
+                Weight: {convertUnits(pokemon, weight)}kg
               </p>
             </div>
           );
