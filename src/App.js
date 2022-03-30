@@ -45,6 +45,8 @@ class App extends Component {
 
     return (
       <div className="App">
+      <img className='app-title-img' alt='Pokemon Logo' src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pokémon_logo.svg/2560px-International_Pokémon_logo.svg.png'></img>
+      <h1 className='app-title'>Rolodex</h1>
         <SearchBox
           onChangeHandler={onSearchChange}
           placeholder="Search Pokémon"
