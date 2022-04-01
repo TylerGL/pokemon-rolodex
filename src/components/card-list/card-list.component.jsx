@@ -10,7 +10,7 @@ class CardList extends Component {
       <div className="card-list">
         {pokemon.map((pokemon) => {
           return(
-            <Card pokemon={pokemon} />
+            <Card pokemon={pokemon} key={pokemon.id} />
           )
         })}
       </div>
