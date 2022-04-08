@@ -8,15 +8,42 @@ function capFirstChar(string) {
 function getTypes(pokemon) {
   const typelength = pokemon.types.length;
   const typeZero = pokemon.types[0].type.name;
+  var typeZeroSrc = "images/" + typeZero + ".svg.png";
   if (typelength === 2) {
     const typeOne = pokemon.types[1].type.name;
+    var typeOneSrc = "images/" + typeOne + ".svg.png";
+    console.log(typeZeroSrc);
     return (
-      <p>
-        {capFirstChar(typeZero)}, {capFirstChar(typeOne)}
-      </p>
+        <div className='type-div-double'>
+        <div className='type-div-double-type-zero'>
+          <img
+            className="type-icon"
+            src={typeZeroSrc}
+            alt="pokemon-type-badge-0"
+          ></img>
+          <p className="type-icon-text">{capFirstChar(typeZero)}</p>
+          </div>
+          <div className='type-div-double-type-one'>
+          <img
+            className="type-icon"
+            src={typeOneSrc}
+            alt="pokemon-type-badge-1"
+          ></img>
+          <p className="type-icon-text"> {capFirstChar(typeOne)}</p>
+          </div>
+        </div>
     );
   } else if (typelength === 1) {
-    return <p>{capFirstChar(typeZero)}</p>;
+    return (
+      <div className='type-div-single'>
+        <img
+          className="type-icon"
+          src={typeZeroSrc}
+          alt="pokemon-type-badge-0"
+        ></img>
+        <p className="type-icon-text">{capFirstChar(typeZero)}</p>
+      </div>
+    );
   }
 }
 
@@ -24,10 +51,8 @@ function convertUnits(pokemon, measure) {
   var convWeight = Math.round(pokemon.weight * 0.1 * 100) / 100;
   var convHeight = Math.round(pokemon.height * 0.1 * 100) / 100;
   if (measure === pokemon.height) {
-    // console.log('height working');
     return convHeight;
   } else if (measure === pokemon.weight) {
-    // console.log('weight working');
     return convWeight;
   }
 }
@@ -35,11 +60,14 @@ function convertUnits(pokemon, measure) {
 class Card extends Component {
   state = {
     img: this.props.pokemon.sprites.front_default,
+    imgStyle: "pokemon-img",
   };
   handleClick = () => {
     this.setState({ img: this.props.pokemon.sprites.front_shiny });
+    this.setState({ imgStyle: "shiny-pokemon-img" });
     setTimeout(() => {
       this.setState({ img: this.props.pokemon.sprites.front_default });
+      this.setState({ imgStyle: "pokemon-img" });
     }, 2000);
   };
   render() {
@@ -48,20 +76,19 @@ class Card extends Component {
     return (
       <div className="card-container" key={id}>
         <h1 className="pokemon-name">{capFirstChar(name)}</h1>
+        <img className='background-image' src='images/background1.png' alt='landscape'></img>
         <img
-          className="pokemon-img"
+          className={this.state.imgStyle}
           src={this.state.img}
           alt="pokemon sprite from the pokedex"
           name="pokemon-img"
           onClick={this.handleClick}
         ></img>
-        <div className="pokemon-type">{getTypes(pokemon)}</div>
-        <p className="pokemon-height">
-          Height: {convertUnits(pokemon, height)}m
-        </p>
-        <p className="pokemon-weight">
-          Weight: {convertUnits(pokemon, weight)}kg
-        </p>
+        <div>{getTypes(pokemon)}</div>
+        <div className="pokemon-h-w">
+        <p>Height: {convertUnits(pokemon, height)}m</p>
+        <p>Weight: {convertUnits(pokemon, weight)}kg</p>
+        </div>
       </div>
     );
   }
