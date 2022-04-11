@@ -84,7 +84,7 @@ class Card extends Component {
           name="pokemon-img"
           onClick={this.handleClick}
         ></img>
-        <div>{getTypes(pokemon)}</div>
+        <div className='type-div'>{getTypes(pokemon)}</div>
         <div className="pokemon-h-w">
         <p>Height: {convertUnits(pokemon, height)}m</p>
         <p>Weight: {convertUnits(pokemon, weight)}kg</p>

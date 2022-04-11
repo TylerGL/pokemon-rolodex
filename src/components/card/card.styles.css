@@ -39,21 +39,27 @@
   border: rgba(255, 204, 0, 1) 0.5em groove;
 }
 
+.type-div{
+  width: 80%;
+  margin-top: 5%;
+}
+
 .type-div-single {
+  width:100%;
 }
 
 .type-div-double {
-
+  width:100%;
 }
 
 .type-div-double-type-zero {
-  display: inline-block;
-  margin: 1% 1% 1%;
+  float: left;
+  margin: 1%
 }
 
 .type-div-double-type-one {
-  display: inline-block;
-  margin: 1% 1% 1%;
+  float: right;
+  margin: 1%
 }
 
 .type-icon {
