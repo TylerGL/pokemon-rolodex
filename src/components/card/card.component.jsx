@@ -14,28 +14,28 @@ function getTypes(pokemon) {
     var typeOneSrc = "images/" + typeOne + ".svg.png";
     console.log(typeZeroSrc);
     return (
-        <div className='type-div-double'>
-        <div className='type-div-double-type-zero'>
+      <div className="type-div-double">
+        <div className="type-div-double-type-zero">
           <img
             className="type-icon"
             src={typeZeroSrc}
             alt="pokemon-type-badge-0"
           ></img>
           <p className="type-icon-text">{capFirstChar(typeZero)}</p>
-          </div>
-          <div className='type-div-double-type-one'>
+        </div>
+        <div className="type-div-double-type-one">
           <img
             className="type-icon"
             src={typeOneSrc}
             alt="pokemon-type-badge-1"
           ></img>
           <p className="type-icon-text"> {capFirstChar(typeOne)}</p>
-          </div>
         </div>
+      </div>
     );
   } else if (typelength === 1) {
     return (
-      <div className='type-div-single'>
+      <div className="type-div-single">
         <img
           className="type-icon"
           src={typeZeroSrc}
@@ -76,18 +76,26 @@ class Card extends Component {
     return (
       <div className="card-container" key={id}>
         <h1 className="pokemon-name">{capFirstChar(name)}</h1>
-        <img className='background-image' src='images/background1.png' alt='landscape'></img>
+        <div className="image-div">
         <img
-          className={this.state.imgStyle}
-          src={this.state.img}
-          alt="pokemon sprite from the pokedex"
-          name="pokemon-img"
-          onClick={this.handleClick}
-        ></img>
-        <div className='type-div'>{getTypes(pokemon)}</div>
-        <div className="pokemon-h-w">
-        <p>Height: {convertUnits(pokemon, height)}m</p>
-        <p>Weight: {convertUnits(pokemon, weight)}kg</p>
+            className="background-image"
+            src="images/background1.png"
+            alt="landscape"
+          ></img>
+          <img
+            className={this.state.imgStyle}
+            src={this.state.img}
+            alt="pokemon sprite from the pokedex"
+            name="pokemon-img"
+            onClick={this.handleClick}
+          ></img>
+        </div>
+        <div className="details-div">
+          <div className="type-div">{getTypes(pokemon)}</div>
+          <div className="pokemon-h-w">
+            <p>Height: {convertUnits(pokemon, height)}m</p>
+            <p>Weight: {convertUnits(pokemon, weight)}kg</p>
+          </div>
         </div>
       </div>
     );

@@ -23,24 +23,30 @@
   -webkit-text-stroke: 2px black;
 }
 
+.image-div{
+  width:100%;
+  align-items: center;
+  position:relative;
+}
+
 .background-image {
-  width: 50%;
-  width: 75%;
+  width: 95%;
+  position:absolute;
+  z-index:-1;
 }
 
 .pokemon-img {
-  width: 75%;
+  width: 90%;
   border: rgba(213, 161, 0, 1) 0.5em groove;
-  z-index: 1;
 }
 
 .shiny-pokemon-img {
-  width: 75%;
+  width: 90%;
   border: rgba(255, 204, 0, 1) 0.5em groove;
 }
 
-.type-div{
-  width: 80%;
+.details-div{
+  width: 90%;
   margin-top: 5%;
 }
 
@@ -54,12 +60,12 @@
 
 .type-div-double-type-zero {
   float: left;
-  margin: 1%
+  margin: 1% 5%;
 }
 
 .type-div-double-type-one {
   float: right;
-  margin: 1%
+  margin: 1% 5%;
 }
 
 .type-icon {
