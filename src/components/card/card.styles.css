@@ -46,39 +46,41 @@
 }
 
 .details-div{
-  width: 90%;
+  width: 95%;
   margin-top: 5%;
-}
-
-.type-div-single {
-  width:100%;
-}
-
-.type-div-double {
-  width:100%;
-}
-
-.type-div-double-type-zero {
-  float: left;
-  margin: 1% 5%;
-}
-
-.type-div-double-type-one {
-  float: right;
-  margin: 1% 5%;
 }
 
 .type-icon {
   width: 50px;
 }
 
+.type-div-single {
+  height:6em;
+}
+
+.type-div-double {
+  height:6em;
+}
+
+.type-div-double-type-zero {
+  float: left;
+  margin: 1% 5% 5% 8%;
+}
+
+.type-div-double-type-one {
+  float: right;
+  margin: 1% 8% 5% 5%;
+}
+
 .type-icon-text {
   font-size: 1.5em;
   color: white;
+  margin: 5% 5%;
 }
 
 .pokemon-h-w {
   font-size: 2em;
   color: white;
-  margin: 0.5em;
+  margin-top: 5%;
+
 }
