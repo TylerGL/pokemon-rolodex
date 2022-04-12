@@ -52,6 +52,7 @@
 
 .type-icon {
   width: 50px;
+  stroke: 1px black;
 }
 
 .type-div-single {
@@ -64,19 +65,19 @@
 
 .type-div-double-type-zero {
   float: left;
-  margin: 1% 5% 5% 8%;
+  margin: 1% 2% 5% 8%;
 }
 
 .type-div-double-type-one {
   float: right;
-  margin: 1% 8% 5% 5%;
+  margin: 1% 8% 5% 2%;
 }
 
 .type-icon-text {
   font-size: 2em;
   -webkit-text-stroke: 1px black;
   color: white;
-  margin: 5% 5%;
+  margin: 5% 2%;
 }
 
 .pokemon-h-w {
