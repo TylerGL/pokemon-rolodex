@@ -12,7 +12,6 @@ function getTypes(pokemon) {
   if (typelength === 2) {
     const typeOne = pokemon.types[1].type.name;
     var typeOneSrc = "images/" + typeOne + ".svg.png";
-    console.log(typeZeroSrc);
     return (
       <div className="type-div-double">
         <div className="type-div-double-type-zero">
@@ -61,6 +60,7 @@ class Card extends Component {
   state = {
     img: this.props.pokemon.sprites.front_default,
     imgStyle: "pokemon-img",
+    cardStyle: this.props.pokemon.types[0].type.name
   };
   handleClick = () => {
     this.setState({ img: this.props.pokemon.sprites.front_shiny });
@@ -74,7 +74,8 @@ class Card extends Component {
     const { pokemon } = this.props;
     const { id, name, height, weight } = this.props.pokemon;
     return (
-      <div className="card-container" key={id}>
+      <div id={this.state.cardStyle} className="card-container" key={id}>
+      {console.log(this.state.cardStyle)}
         <h1 className="pokemon-name">{capFirstChar(name)}</h1>
         <div className="image-div">
         <img
