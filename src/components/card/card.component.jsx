@@ -75,7 +75,6 @@ class Card extends Component {
     const { id, name, height, weight } = this.props.pokemon;
     return (
       <div id={this.state.cardStyle} className="card-container" key={id}>
-      {console.log(this.state.cardStyle)}
         <h1 className="pokemon-name">{capFirstChar(name)}</h1>
         <div className="image-div">
         <img
