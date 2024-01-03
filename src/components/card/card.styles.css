@@ -13,14 +13,15 @@
   align-items: center;
 }
 
-.card-container:hover {
+/* .card-container:hover {
   transform: scale(1.05);
-}
+} */
 
 .pokemon-name {
   font-size: 2.5em;
   color: white;
   -webkit-text-stroke: 2px black;
+  margin: 0 0 20px 0;
 }
 
 .image-div {
@@ -30,17 +31,17 @@
 }
 
 .background-image {
-  width: 95%;
+  width: 93%;
   position: absolute;
   z-index: -1;
 }
 
-.pokemon-img {
+.pokemon-sprite {
   width: 90%;
   border: rgba(213, 161, 0, 1) 0.5em groove;
 }
 
-.shiny-pokemon-img {
+.pokemon-sprite-shiny {
   width: 90%;
   border: rgba(255, 204, 0, 1) 0.5em groove;
 }
@@ -48,190 +49,91 @@
 .details-div {
   width: 95%;
   margin-top: 5%;
+  font-size: 2em;
+  color: black;
 }
 
 .type-icon {
   width: 50px;
-  stroke: 1px black;
 }
 
-.type-div-single {
-  height: 6em;
+.type-div {
+  height: 4em;
 }
 
-.type-div-double {
-  height: 6em;
-}
-
-.type-div-double-type-zero {
+.type-primary {
   float: left;
-  margin: 1% 2% 5% 8%;
+  margin: 0 2% 5% 8%;
 }
 
-.type-div-double-type-one {
+.type-secondary {
   float: right;
-  margin: 1% 8% 5% 2%;
+  margin: 0 8% 5% 2%;
 }
 
 .type-icon-text {
-  font-size: 2em;
-  -webkit-text-stroke: 1px black;
-  color: white;
-  margin: 5% 2%;
+  margin: 0;
 }
 
-.pokemon-h-w {
-  font-size: 2.5em;
-  -webkit-text-stroke: 1px black;
-  color: white;
-  margin-top: 5%;
+.details-text {
+  margin: 5%;
 }
 
 /* ID Types */
 
 #bug {
-  background: linear-gradient(
-    110deg,
-    #91ba2e 20%,
-    #bddd6e 50%,
-    #d9fe9e 120%
-  );
+  background: linear-gradient(110deg, #91ba2e 20%, #bddd6e 50%, #d9fe9e 120%);
 }
 #dark {
-  background: linear-gradient(
-    110deg,
-    #2d221c 20%,
-    #2d221c 50%,
-    #2d221c 120%
-  );
+  background: linear-gradient(110deg, #2d221c 20%, #2d221c 50%, #2d221c 120%);
 }
 #dragon {
-  background: linear-gradient(
-    110deg,
-    #29036a 20%,
-    #8a55fd 50%,
-    #d6b1fe 120%
-  );
+  background: linear-gradient(110deg, #29036a 20%, #8a55fd 50%, #d6b1fe 120%);
 }
 #electric {
-  background: linear-gradient(
-    110deg,
-    #969101 20%,
-    #fffa23 50%,
-    #f7ff85 120%
-  );
+  background: linear-gradient(110deg, #969101 20%, #fffa23 50%, #f7ff85 120%);
 }
 #fairy {
-  background: linear-gradient(
-    110deg,
-    #f87ea7 20%,
-    #ffa0c2 50%,
-    #fdd1e0 120%
-  );
+  background: linear-gradient(110deg, #f87ea7 20%, #ffa0c2 50%, #fdd1e0 120%);
 }
 #fighting {
-  background: linear-gradient(
-    110deg,
-    #800c11 20%,
-    #e71318 50%,
-    #d36163 120%
-  );
+  background: linear-gradient(110deg, #800c11 20%, #e71318 50%, #d36163 120%);
 }
 
 #fire {
-  background: linear-gradient(
-    110deg,
-    #fc0d0b 20%,
-    #f57f0b 50%,
-    #f8b80e 120%
-  );
+  background: linear-gradient(110deg, #fc0d0b 20%, #f57f0b 50%, #f8b80e 120%);
 }
 
 #flying {
-  background: linear-gradient(
-    110deg,
-    #085764 20%,
-    #085764 50%,
-    #dce5ea 120%
-  );
+  background: linear-gradient(110deg, #085764 20%, #085764 50%, #dce5ea 120%);
 }
 #ghost {
-  background: linear-gradient(
-    110deg,
-    #472b53 20%,
-    #8e55a4 50%,
-    #bd99cb 120%
-  );
+  background: linear-gradient(110deg, #472b53 20%, #8e55a4 50%, #bd99cb 120%);
 }
 #grass {
-  background: linear-gradient(
-    110deg,
-    #204000 20%,
-    #204000 50%,
-    #67f70a 120%
-  );
+  background: linear-gradient(110deg, #204000 20%, #204000 50%, #67f70a 120%);
 }
 #ground {
-  background: linear-gradient(
-    110deg,
-    #bfac21 20%,
-    #e1d158 50%,
-    #ede293 120%
-  );
+  background: linear-gradient(110deg, #bfac21 20%, #e1d158 50%, #ede293 120%);
 }
 #ice {
-  background: linear-gradient(
-    110deg,
-    #103d44 20%,
-    #1995a1 50%,
-    #66d0e5 120%
-  );
+  background: linear-gradient(110deg, #103d44 20%, #1995a1 50%, #66d0e5 120%);
 }
 #normal {
-  background: linear-gradient(
-    110deg,
-    #aca974 20%,
-    #aca974 50%,
-    #eaeade 120%
-  );
+  background: linear-gradient(110deg, #aca974 20%, #aca974 50%, #eaeade 120%);
 }
 #poison {
-  background: linear-gradient(
-    110deg,
-    #611480 20%,
-    #a719d7 50%,
-    #ca72ec 120%
-  );
+  background: linear-gradient(110deg, #611480 20%, #a719d7 50%, #ca72ec 120%);
 }
 #psychic {
-  background: linear-gradient(
-    110deg,
-    #8a0532 20%,
-    #eb0e63 50%,
-    #f45792 120%
-  );
+  background: linear-gradient(110deg, #8a0532 20%, #eb0e63 50%, #f45792 120%);
 }
 #rock {
-  background: linear-gradient(
-    110deg,
-    #474026 20%,
-    #776a3e 50%,
-    #94834f 120%
-  );
+  background: linear-gradient(110deg, #474026 20%, #776a3e 50%, #94834f 120%);
 }
 #steel {
-  background: linear-gradient(
-    110deg,
-    #454545 20%,
-    #7b8e8a 50%,
-    #bbc5c4 120%
-  );
+  background: linear-gradient(110deg, #454545 20%, #7b8e8a 50%, #bbc5c4 120%);
 }
 #water {
-  background: linear-gradient(
-    110deg,
-    #08517b 20%,
-    #0b79bc 50%,
-    #37aff6 120%
-  );
+  background: linear-gradient(110deg, #08517b 20%, #0b79bc 50%, #37aff6 120%);
 }
